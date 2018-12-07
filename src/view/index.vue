@@ -1,5 +1,7 @@
 <template>
-  <div class="content">
+  <div class="page">
+    <router-view></router-view>
+    <div class="content">
     <div class="index-p1">
       <div class="index-p1-top">
         <h4>HI，麦兜</h4>
@@ -145,6 +147,7 @@
       <p class="co-666 f24 bc w500 divider">恒生金融资产</p>
       <p class="co-999 f22 tc mt15">市场有风险，投资需谨慎</p>
     </div>
+  </div>
   </div>
 </template>
 

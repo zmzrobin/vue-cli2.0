@@ -3,8 +3,13 @@ window.addEventListener('onorientationchange' in window ? 'orientationchange' : 
   setRem()
 })
 
+var setRemFontSize
+
 function setRem () {
   const html = document.querySelector('html')
   const width = html.getBoundingClientRect().width
-  html.style.fontSize = width / 7.5 + 'px'
+  setRemFontSize = width / 7.5
+  html.style.fontSize = setRemFontSize + 'px'
 }
+
+export default setRemFontSize

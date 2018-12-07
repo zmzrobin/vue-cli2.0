@@ -1,27 +1,44 @@
 @import "mixin";
 
 /*变量设置*/
+//flag 弧度
+$flag-radius: .2rem;
 //字体
-$font-family:"iconfont";
+$font-family: "iconfont";
 //headbar
-$headbar-background-color:#000;
-$headbar-color:#fff;
-$headbar-active-color:#fff;
+$headbar-background-color: #da552f;
+$headbar-color: #fff;
+$headbar-active-color: #fff;
 //footbar
-$footbar-background-color:#fff;
-$footbar-active-background-color:#fff;
-$footbar-color:#333;
-$footbar-active-color:#495AFF;
+$footbar-background-color: #fff;
+$footbar-active-background-color: #fff;
+$footbar-color: #333;
+$footbar-active-color: #D48D0C;
 
-$page-background-color:#f5f5f5;
-$a-link-default:#0097E1;   //a连接默认颜色
-$border-color-default:#dcdcdc;   //边框默认颜色
-$input-border-color-default:#dddd;   //输入框边框默认颜色
+$page-background-color: #f5f5f5;
+$a-link-default: #0097E1; //a连接默认颜色
+$border-color-default: #dcdcdc; //边框默认颜色
+$input-border-color-default: #dddd; //输入框边框默认颜色
+
+//tab
+$tab-color: #666;
+$tab-actice-color: #da552f;
+$tab-border-color: #da552f;
+
+//checkbox radio
+$checjbox-active-color: #79b542;
 
 //几种常用颜色
-$fenxian-low:#50E3C2;
-$fenxian-middle:#7ED321;
-$fenxian-high:#D0021B;
+$fenxian-low: #1FB1AA;
+$fenxian-middle: #7ED321;
+$fenxian-high: #D0021B;
 
-$color:(#3982CC,#4793E1,#8ABCF0,#D0021B,#7ED321,#BD10E0,#F5A623);
+//成功失败警告
+$success: #8ABD5B;
+$error: #D81D06;
+$warning: #FEF107;
+
+$color: (#d69a13, #da552f, #1fb1aa, #5588ff, #e4937c, #ffcfc9,
+#6e96d7, #e95b32,
+#3B87F3, #F8DAAF, #F0C07B, #f4f4f4, #92d072,#e6e6e6);
 

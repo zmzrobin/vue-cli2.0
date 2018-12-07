@@ -1,8 +1,7 @@
 <template>
-  <div class="content">
-    <mt-header>
-      <mt-button slot="right">设置</mt-button>
-    </mt-header>
+  <div class="page">
+    <router-view></router-view>
+    <van-nav-bar right-text="设置" @click-right="setting"></van-nav-bar>
     <div class="content">
       <div class="index-p1">
         <div class="index-p1-top">
@@ -17,12 +16,12 @@
         </div>
         <div class="index-p1-money">
           <p class="f24 co-666 tc mt30">总资产(元)</p>
-          <p class="f40 co-4 tc">3924,755.97</p>
+          <p class="f40 co-4 tc">{{totalMoney}}</p>
           <div class="chongzhi">充值</div>
         </div>
         <div class="index-p1-shouyi">
           <p class="f24 co-666 tc mt30">昨日收益(元)</p>
-          <p class="f30 co-2 tc">+35.56</p>
+          <p class="f30 co-2 tc">+{{incomeMoney}}</p>
           <div class="tixian">提现</div>
         </div>
       </div>
@@ -37,7 +36,7 @@
         </ul>
       </div>
       <div class="m20">
-        <van-button size="large" type="default" class="mt30 linh100 f36">安全退出</van-button>
+        <van-button size="large" type="default" class="mt30 linh100 f36" @click.native="quit">安全退出</van-button>
       </div>
       <div class="p40">
         <p class="co-666 f24 bc w500 divider">恒生金融资产</p>
@@ -48,13 +47,12 @@
 </template>
 
 <script>
-  import { Header, Button as MtButton } from 'mint-ui'
-  import { Button } from 'vant'
+  import {Button, NavBar} from 'vant'
+  import {TweenMax, Power2, TimelineLite} from 'gsap'
 
   export default {
     components: {
-      [MtButton.name]: MtButton,
-      [Header.name]: Header,
+      [NavBar.name]: NavBar,
       [Button.name]: Button,
     },
     data: () => ({
@@ -97,29 +95,51 @@
         {
           src: require('../assets/images/myspace-ico_0008.png'),
           title: '我的消息',
-          link: '/mymessage'
+          link: 'myspace/message'
         },
         {
           src: require('../assets/images/myspace-ico_0009.png'),
           title: '风险评估',
           link: '/riskassess'
-        },
-      ]
+        }
+      ],
+      total: 0,
+      income: 0
     }),
+    computed: {
+      totalMoney () {
+        return this.total.toFixed(2)
+      },
+      incomeMoney () {
+        return this.income.toFixed(2)
+      }
+    },
     methods: {
       handleClose () {
-
+      },
+      setting () {
+      },
+      quit () {
+        localStorage.removeItem('login')
+        this.$router.replace({path: 'login', query: {to: this.$route.fullPath}})
       }
+    },
+    created () {
+      TweenMax.to(this.$data, 1, {total: 345736.78})
+      TweenMax.to(this.$data, 1, {income: 35.77})
     }
   }
 </script>
 
 <style scoped lang="scss" type="text/scss">
-  .mint-header {
+  .van-nav-bar {
     background-color: transparent;
+    &::after {
+      border-bottom: 0;
+    }
   }
 
-  .mint-header ~ .content {
+  .van-nav-bar ~ .content {
     top: 0;
   }
 
@@ -132,10 +152,11 @@
     flex-flow: row wrap;
     .index-p1-top {
       height: 3.7rem;
+      width: 7.5rem;
       display: flex;
       align-items: center;
       padding: 1.5rem 0 .5rem .6rem;
-      flex: 1;
+      flex: none;
       .head {
         border: .07rem solid rgba(255, 255, 255, .5);
         width: 1.5rem;

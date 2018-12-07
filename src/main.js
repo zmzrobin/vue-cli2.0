@@ -5,10 +5,12 @@ import App from './App'
 import router from './router'
 import store from './store'
 import './assets/js/rem'
+import './assets/js/TweenMax.min'
 import 'mint-ui/lib/style.css'
 import './assets/css/common.scss'
-import { Lazyload } from 'vant'
-Vue.use(Lazyload)
+import { Lazyload, Toast } from 'vant'
+
+Vue.use(Lazyload, Toast)
 
 Vue.config.productionTip = false
 

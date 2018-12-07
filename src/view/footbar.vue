@@ -1,47 +1,40 @@
 <template>
-  <tabbar v-model="selected">
-    <tab-item id="index">
+  <van-tabbar v-model="selected">
+    <van-tabbar-item to="index">
+      <span>首页</span>
       <span slot="icon" class="iconfont icon-shouye"></span>
-      首页
-    </tab-item>
-    <tab-item id="product">
-      <span slot="icon" class="iconfont icon-jinronghangye"></span>
-      产品
-    </tab-item>
-    <tab-item id="myspace">
-      <span slot="icon" class="iconfont icon-wode"></span>
-      我的
-    </tab-item>
-  </tabbar>
+    </van-tabbar-item>
+    <van-tabbar-item to="product">
+      <span>投资</span>
+      <span slot="icon" class="iconfont icon-touzilicai"></span>
+    </van-tabbar-item>
+    <van-tabbar-item dot to="myspace">
+      <span>我的</span>
+      <span slot="icon" class="iconfont icon-guanliyuan"></span>
+    </van-tabbar-item>
+  </van-tabbar>
 </template>
 
 <script>
-  import { Tabbar, TabItem } from 'mint-ui'
+  import { Tabbar, TabbarItem } from 'vant'
 
+  const tabBar = ['index', 'product', 'news', 'myspace']
   export default {
     name: '',
     components: {
-      Tabbar,
-      TabItem
+      [Tabbar.name]: Tabbar,
+      [TabbarItem.name]: TabbarItem
     },
     data: () => ({
-      selected: 'index'
+      selected: 0
     }),
     computed: {},
     methods: {},
-    watch: {
-      selected () {
-        this.$router.push(this.selected)
-      }
-    },
+    watch: {},
     filters: {},
-    created () {},
-    beforeShow () {},
-    afterShow () {},
+    created () {
+      this.selected = tabBar.findIndex(item => item === this.$route.name)
+    }
 
   }
 </script>
-
-<style scoped lang="less" type="text/less">
-
-</style>
