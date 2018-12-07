@@ -1,0 +1,27 @@
+@import "mixin";
+
+/*变量设置*/
+//字体
+$font-family:"iconfont";
+//headbar
+$headbar-background-color:#000;
+$headbar-color:#fff;
+$headbar-active-color:#fff;
+//footbar
+$footbar-background-color:#fff;
+$footbar-active-background-color:#fff;
+$footbar-color:#333;
+$footbar-active-color:#495AFF;
+
+$page-background-color:#f5f5f5;
+$a-link-default:#0097E1;   //a连接默认颜色
+$border-color-default:#dcdcdc;   //边框默认颜色
+$input-border-color-default:#dddd;   //输入框边框默认颜色
+
+//几种常用颜色
+$fenxian-low:#50E3C2;
+$fenxian-middle:#7ED321;
+$fenxian-high:#D0021B;
+
+$color:(#3982CC,#4793E1,#8ABCF0,#D0021B,#7ED321,#BD10E0,#F5A623);
+

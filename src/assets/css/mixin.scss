@@ -1,0 +1,47 @@
+//绝对定位居中
+@mixin pa-center($w,$h){
+  position:absolute;
+  width:$w;
+  height:$h;
+  left:50%;
+  top:50%;
+  transition:translate(-50%,-50%)
+}
+
+//flex居中
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//字体溢出
+@mixin text-ellipsis($line:1){
+  @if $line==1{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }@else{
+    display: -webkit-box;
+    -webkit-line-clamp:$line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+//右边三角框
+@mixin more{
+  font-family: $font-family;
+  font-size: .2rem;
+  &:after{
+    content: '\e608';
+  }
+}
+
+//最后一条线隐藏
+@mixin last-child-none($d:bottom){
+  &:last-child{
+     border-#{$d}-width:0 ;
+  }
+}
